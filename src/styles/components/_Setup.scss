@@ -1,0 +1,206 @@
+// START STYLING SETUP PAGE
+
+// FUNCTIONS (MIXIN)
+@mixin Fonts($fnt, $clr, $sz) {
+    font-family: $fnt;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $clr  !important;
+    font-size: $sz;
+}
+
+@mixin Displayed($pos, $dir) {
+    display: flex;
+    justify-content: $pos;
+    flex-direction: $dir;
+    align-items: center;
+}
+
+@mixin Buttons($padd, $bg) {
+    padding: $padd;
+    outline: none;
+    border: none;
+    border-radius: 24px;
+    background: $bg;
+}
+
+.setup-height {
+    min-height: 100vh;
+}
+
+.template_alert {
+    @include Fonts($russOne, #D1D1D1, 21px);
+    text-transform: uppercase;
+}
+
+
+.l-setup-pg {
+    width: 100%;
+    h1{
+        @include Fonts($russOne, #000, 30px);
+    }
+
+    .portfolio_setup_area {
+        width: 100%;
+        height: 100%;
+        margin-top: 4.5rem;
+
+        .setup_profile_area {
+            width: 120px;
+            height: 120px;
+            @include Displayed(center, row);
+            border-radius: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .setup_profile_forms {
+            width: 100%;
+            .profile_input {
+                padding: 11px 30px;
+                outline: none;
+                border: 1px solid #D1D1D1;
+                border-radius: 10px;
+                @include Fonts($rajdhani, #000, 16px);
+            }
+            .form_btn_wrapper {
+                //margin-top: 5.5rem;
+                width: 100%;
+                .form_save_btn{
+                    @include Buttons(12px 55px, $primary_clr);
+                    @include Fonts($rajdhani, #FFF, 17px);
+                    margin-top: 2.5rem;
+                }
+            }
+        }
+    }
+
+    // START STYLING TEMPLATES PREVIEW SECTION
+    .portfolio_preview_area {
+        margin-top: 4.5rem;
+        //background: rgb(0,0,0,0.4);
+        //padding: 2.5rem;
+        border: 1px solid #D1D1D1;
+        border-radius: 24px;
+        overflow: hidden;
+        width: 100%;
+
+        .temp_header_part {
+            width: 100%;
+            position: relative;
+
+            svg {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+        }
+
+        .temp_body_part {
+            width: 100%;
+            //margin: 2.5rem; 
+            .part_title {
+                @include Fonts($russOne, #111, 19px);
+                text-transform: capitalize !important;
+                text-align: center;
+            }
+
+            .body_container {
+                margin-top: 1.5rem;
+                .list-item {
+                    @include Displayed(start, row);
+                    h5 {
+                        @include Fonts($russOne,#111, 14px);
+                        text-transform: capitalize !important;
+                        margin-bottom: 1.1rem;
+                        .bx {
+                            color:#111;
+                            font-size: 23px;
+                            margin-right: 0.7rem;
+                        }
+
+                        .clientName, .clientEmail,
+                        .clientPhone, .clientWeb {
+                            @include Fonts($rajdhani, #111, 16px);
+                            text-transform: capitalize !important;
+                            margin-left: 1.5rem;
+                        }
+                    }
+                }
+            }
+
+            .tail_container {
+                margin-top: 1.5rem;
+                .gallery_grid_container {
+                    width: 100%;
+                    display: grid;
+                    margin-bottom: 1.5rem;
+                    grid-template-columns: repeat(3,1fr);
+
+                    .gallery_wrapper {
+                        width: 100%;
+                        height: 100%;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .contact_section{
+                    width: 100%;
+                    padding: 0.5rem;
+                    @include Displayed(center, row);
+
+                    .temp_contact_btn {
+                        @include Buttons(12px 35px, $primary_clr);
+                        @include Fonts($rajdhani, #FFF, 17px);
+                        margin-top: 1.5rem;
+                        margin: auto !important;
+                        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+                                0 8px 10px -6px rgb(0 0 0 / 0.1);
+                        }
+                }
+            }
+        }
+
+        .portfolio_logo {
+            width: 120px;
+            height:  120px;
+            border-radius: 100%;
+            border: 5px solid #FFF;
+            //padding: 2px;
+            margin: auto;
+            margin-bottom:1.5rem;
+            z-index: 99;
+
+            img {
+                width:100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 100%;
+            }
+        }
+
+        .template_face2 {
+            //border: 1px solid $primary_clr !important;
+            //padding: 0.5rem !important;
+            width: 125px;
+            height: 125px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
